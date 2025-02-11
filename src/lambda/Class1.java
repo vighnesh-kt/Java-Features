@@ -21,9 +21,10 @@ public class Class1{
 //		onFlyBehaviour(()->System.out.println("Bhaloo"));
 		
 		//calculating on fly
-		int num1=30,num2=20;
-		onFlyBehaviour((a,b)->System.out.println(a+b), num1,num2);
-		onFlyBehaviour((a,b)->System.out.println(a-b), num1,num2);
+//		int num1=30,num2=20;
+//		onFlyBehaviour((a,b)->System.out.println(a+b), num1,num2);
+//		onFlyBehaviour((a,b)->System.out.println(a-b), num1,num2);
+	
 		
 	}
 	

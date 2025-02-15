@@ -2,9 +2,12 @@ package lambda;
 
 public interface MyFunctionalInterface {
 	
-
-	//void print();
+	// 1) no return type
+//	void print();
 	
-	void calculate(int a,int b);
-
+	// 2) method with parameter and no return type
+//	void calculate(int a,int b);
+	
+	// 3) Method with parameter and return type
+	int length(String s);
 }

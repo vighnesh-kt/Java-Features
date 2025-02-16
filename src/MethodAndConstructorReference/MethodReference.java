@@ -11,6 +11,10 @@ public class MethodReference {
 		System.out.println("Bye "+s);
 	}
 	
+	 public void printName(String name) {
+	        System.out.println(name);
+	    }
+	
 	public static void main(String[] args) {
 		MethodReference s=new MethodReference();
 		List<String>ls=List.of("Raj","Jay");
@@ -20,6 +24,14 @@ public class MethodReference {
 		
 		//static calling by class name
 		ls.forEach(MethodReference::bye);
+		
+		//arbitary object eg
+		List<String> names = List.of("Raj", "Jay", "Amit");
+        // Using method reference for an instance method of an arbitrary object
+		names.forEach(System.out::println);  // ✅ Equivalent to (s -> System.out.println(s))
+
+		
+		
 	}
 
 }

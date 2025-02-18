@@ -5,7 +5,7 @@ import java.util.Optional;
 public class OptionalCreation {
 
 	public static void main(String[] args) {
-		String s="Hello";
+		String s="hello";
 		Optional<String> opt=Optional.of(s);
 		
 		//empty 
@@ -18,10 +18,20 @@ public class OptionalCreation {
 		Optional<String>emptyOptional=Optional.ofNullable(null);
 		
 
-		
-		System.out.println(empty);
+		System.out.println(opt);
+		System.out.println(empty.isEmpty());
 		System.out.println(nullable);
 		System.out.println(emptyOptional);
+		//empty.get();
+		//opt.get();
+		//emptyOptional.get();
+		
+		//isPresent
+		System.out.println(opt.isPresent()?opt.get():"0");
+		
+		//orElse()
+		System.out.println(empty.orElse("0"));
+		
 	}
 
 }

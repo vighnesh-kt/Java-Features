@@ -1,6 +1,8 @@
 package Optional;
 
+import java.util.InputMismatchException;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class OptionalCreation {
 
@@ -30,7 +32,13 @@ public class OptionalCreation {
 		System.out.println(opt.isPresent()?opt.get():"0");
 		
 		//orElse()
-		System.out.println(empty.orElse("0"));
+		System.out.println(empty.orElse("String as Optional<String>empty is String type"));
+		
+		//orElseGet()
+		Supplier<String>error=()->"Error";
+		System.out.println(empty.orElseGet(error));
+		System.out.println(empty.orElseGet(()->"Error"));
+		System.out.println(empty.orElseThrow(()->new InputMismatchException()));
 		
 	}
 

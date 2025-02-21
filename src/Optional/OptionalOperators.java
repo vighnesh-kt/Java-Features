@@ -16,8 +16,17 @@ public class OptionalOperators {
 		System.out.println(stringOpt.map((s)->s.length()));
 		System.out.println(emptyOpt.map(s->s.length()));
 		
-		//filter
+		//filter()
 		System.out.println(stringOpt.filter(s->s.length()>0));
+		
+//		flatmap()
+		 Optional<Optional<String>> outer = Optional.of(Optional.of("Outer String"));
+
+	        // Correct way to use flatMap
+	        outer.flatMap(opt -> opt.map(s -> {
+	            System.out.println(s);  // ✅ Prints the inner string
+	            return s;  // ✅ Must return a value, not void
+	        }));
 	}
 
 }

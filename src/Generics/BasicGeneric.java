@@ -24,7 +24,7 @@ class Data{
 	
 }
 
-class GenericData<T>{
+class GenericData<T> extends BaseGeneric<T> implements GenericInterface<T>{
 	
 	//t type parameter
 	T data;
@@ -50,6 +50,10 @@ class GenericData<T>{
 	
 }
 
+class BaseGeneric<T>{
+	
+}
+
 public class BasicGeneric {
 	
 	public static void main(String[] args) {
@@ -67,7 +71,12 @@ public class BasicGeneric {
 		
 //		int i=(int)d1.getData();//type error in compile time
 		
+		GenericInterface<String>get=new GenericData<>("Interfac data");
+		System.out.println(get.toString());
 		
+		GenericData<String> d4=new GenericData<>("Base");
+		BaseGeneric<String> d5=d4;
+				
 	}
 
 }

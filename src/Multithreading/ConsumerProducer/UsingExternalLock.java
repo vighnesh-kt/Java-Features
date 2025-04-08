@@ -10,42 +10,46 @@ class SharedResourceExternal {
 	Condition condition = lock.newCondition();
 
 	public void producer() {
-		try {
-			lock.lock();
+	    lock.lock();
+	    try {
+	        while (isAvailable) {
+	            // Wait until consumer consumes the item
+	            condition.await();
+	        }
+	        // Produce item
+	        System.out.println("Producer produced item");
+	        isAvailable = true;
 
-			while (isAvailable) {
-				System.out.println("thread notifying");
-				condition.signalAll();
-			}
-			isAvailable = true;
-			condition.await();
-
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-
-		} finally {
-			lock.unlock();
-		}
+	        // Notify consumer
+	        condition.signalAll();
+	    } catch (InterruptedException e) {
+	        e.printStackTrace();
+	    } finally {
+	        lock.unlock();
+	    }
 	}
+
 
 	public void consumer() {
-		try {
-			lock.lock();
-			while(isAvailable) {
-				System.out.println("thread changed value");
-				isAvailable=false;
-				condition.signalAll();
-			}
-			condition.await();
-		}
-		catch(Exception e) {
-			
-		}
-		finally {
-			lock.unlock();
-		}
+	    lock.lock();
+	    try {
+	        while (!isAvailable) {
+	            // Wait until item is produced
+	            condition.await();
+	        }
+	        // Consume item
+	        System.out.println("Consumer consumed item");
+	        isAvailable = false;
+
+	        // Notify producer
+	        condition.signalAll();
+	    } catch (InterruptedException e) {
+	        e.printStackTrace();
+	    } finally {
+	        lock.unlock();
+	    }
 	}
+
 
 }
 

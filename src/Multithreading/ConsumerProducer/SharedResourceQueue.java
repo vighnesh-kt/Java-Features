@@ -46,8 +46,8 @@ public class SharedResourceQueue {
 		}
 		int item = sharedBuffer.poll();
 		System.out.println(item);
-        System.out.println("Consumed: " + item);
-        notifyAll(); // wake up waiting producer(s)
+		System.out.println("Consumed: " + item);
+		notifyAll(); // wake up waiting producer(s)
 	}
 
 }

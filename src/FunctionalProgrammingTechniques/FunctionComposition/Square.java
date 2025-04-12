@@ -1,10 +1,8 @@
 package FunctionalProgrammingTechniques.FunctionComposition;
 
-
 public class Square {
-	
-	private int area;
 
+	private int area;
 
 	public int getArea() {
 		return area;

@@ -1,12 +1,8 @@
 package Multithreading;
 
 public class ThreadJoinAndDaemon {
-	
-
 
 	public static void main(String[] args) {
-		
-
 
 		System.out.println("Main thread start");
 
@@ -33,7 +29,8 @@ public class ThreadJoinAndDaemon {
 		try {
 			System.out.println("Main is waiting");
 //			t1.join();
-			t2.join();//if make t1 as daemon jvm kills it after excetuon of user thred t1 doesnt execute
+			t2.join();// if make t1 as daemon jvm kills it after excetuon of user thred t1 doesnt
+						// execute
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,6 +1,5 @@
 package Multithreading.Locks;
 
-
 import java.util.concurrent.locks.StampedLock;
 
 class SharedResourceStampede {
@@ -38,7 +37,7 @@ class SharedResourceStampede {
 }
 
 public class StampedeLockExample {
-	
+
 	public static void main(String[] args) {
 		SharedResourceStampede sc = new SharedResourceStampede();
 
@@ -49,7 +48,7 @@ public class StampedeLockExample {
 		Thread t2 = new Thread(() -> {
 			sc.consumer();
 		});
-		
+
 		t1.start();
 		t2.start();
 	}

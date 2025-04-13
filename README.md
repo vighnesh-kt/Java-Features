@@ -19,10 +19,7 @@ Each folder represents a specific Java 8 feature or concept, with real working e
 | `Optional/`                       | Working with `Optional` to avoid null checks        |
 | `PredefinedfunctionalInterfaces/` | Consumer, Supplier, Predicate, Function examples    |
 | `lambda/`                         | Various lambda expression examples                  |
-| `.DS_Store`                       | *(macOS system file — can be deleted)*              |
 | `Mulltithreading/`                | Duplicate/misspelled? Possibly same as `Multithreading` |
-| `Temp.class`                      | *(Compiled class file — not needed in repo)*        |
-
 ---
 
 ## 🔍 Java 8 Concepts Covered
@@ -35,10 +32,3 @@ Each folder represents a specific Java 8 feature or concept, with real working e
 - ✅ **Generics with Functional Style**
 - ✅ **Multithreading Enhancements**
 - ✅ **Built-in Functional Interfaces**
-  - `Predicate`
-  - `Function`
-  - `Consumer`
-  - `Supplier`
-
----
-

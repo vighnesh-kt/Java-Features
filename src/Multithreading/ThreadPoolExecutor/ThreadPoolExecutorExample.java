@@ -38,6 +38,7 @@ public class ThreadPoolExecutorExample {
 		for(int i=1;i<=7;i++) {
 			
 			//submit method takes runnable
+		
 			executor.submit(()->{
 				try {
 					Thread.sleep(6000);

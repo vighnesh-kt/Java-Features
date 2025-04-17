@@ -50,10 +50,14 @@ public class CallableExample {
 		List<Integer> list = new ArrayList<>(); //we are modifying this list and returning same in pool.submit
 		List<Integer> l = new ArrayList<>();
 		
-//		Usecase 2 
-//		Runnable,object it will return the object which is passesed during submit
-//		if the object is modified during submit it will reflect in the result also
-//		Future<List<Integer>> submit = pool.submit(new Ex(list), list); //modified during submit
+		// UseCase 2 
+		// pool.submit(Runnable task, result)
+		// - The second argument (`result`) is returned by Future.get().
+		// - If this `result` object is modified inside the Runnable, you'll see the changes.
+		// - If it's not modified inside the Runnable, it will remain unchanged.
+
+		// Here, we are NOT modifying `l` inside the Runnable (we modify `list` instead),
+		// so Future.get() will return the unchanged object `l` (which is empty).
 		Future<List<Integer>> submit = pool.submit(new Ex(list), l); //l is not modified in submit hence null
 		
 		
@@ -74,6 +78,7 @@ public class CallableExample {
 		
 //		Usecase 3 
 //		simple perform and return using callable nstead of sending it in runnable
+		// Cleaner when you want to return something from a background task.
 		Future<List<Integer>> submit2 = pool.submit(()->{
 			List<Integer> callable=new ArrayList<>();
 			callable.add(100);

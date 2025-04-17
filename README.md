@@ -19,7 +19,7 @@ Each folder represents a specific Java 8 feature or concept, with real working e
 | `Optional/`                       | Working with `Optional` to avoid null checks        |
 | `PredefinedfunctionalInterfaces/` | Consumer, Supplier, Predicate, Function examples    |
 | `lambda/`                         | Various lambda expression examples                  |
-| `Mulltithreading/`                | Duplicate/misspelled? Possibly same as `Multithreading` |
+| `Mulltithreading/`                | `Multithreading` concepts in depth|
 ---
 
 ## 🔍 Java 8 Concepts Covered

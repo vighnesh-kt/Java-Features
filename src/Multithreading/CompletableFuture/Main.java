@@ -10,7 +10,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		ThreadPoolExecutor pool = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(2));
+		ThreadPoolExecutor pool = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
 
 		CompletableFuture<String> cFuture=CompletableFuture.supplyAsync(()->{
 			

@@ -47,6 +47,8 @@ public class Main {
 			//chaining thread
 			System.out.println("Used supplyAsync return string in thenApply "+Thread.currentThread().getName());
 			return val+"Used supplyAsync return string in thenApply"+Thread.currentThread().getName();
+		}).thenApplyAsync((String val)->{
+			return val;
 		});
 
 //		try {
@@ -61,7 +63,20 @@ public class Main {
 //		pool.shutdown();
 		
 		
-		//thenCompose()
+		//thenCompose() and thenComposeAsync()
+		CompletableFuture<String> eg3 = CompletableFuture.supplyAsync(() -> {
+		
+		try {
+			System.out.println("Task completed in supplyAsync"+Thread.currentThread().getName());
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "Task completed in supplyAsync "+Thread.currentThread().getName();
+
+	}, pool);
+		
 	}
 
 }

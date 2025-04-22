@@ -77,6 +77,27 @@ public class Main {
 
 	}, pool);
 		
+		
+		//eg
+		CompletableFuture<String> cf0 = CompletableFuture
+			    .supplyAsync(() -> "Hello")
+			    .thenApply(result -> result + " World");  // just transforms the 
+		
+		
+		
+		CompletableFuture<String> cf1 = CompletableFuture
+			    .supplyAsync(() -> "Hello")
+			    .thenApply(result -> {
+			        return CompletableFuture.supplyAsync(() -> result + " World");
+			    });
+		
+		CompletableFuture<String> cf = CompletableFuture
+			    .supplyAsync(() -> "Hello")
+			    .thenCompose(result -> CompletableFuture.supplyAsync(() -> result + " World"));
+
+	
+
+		
 	}
 
 }

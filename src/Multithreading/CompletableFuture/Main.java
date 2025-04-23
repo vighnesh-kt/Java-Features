@@ -85,11 +85,17 @@ public class Main {
 		
 		
 		
-		CompletableFuture<String> cf1 = CompletableFuture
+		CompletableFuture<Object> cf1 = CompletableFuture
 			    .supplyAsync(() -> "Hello")
 			    .thenApply(result -> {
 			        return CompletableFuture.supplyAsync(() -> result + " World");
 			    });
+		
+		CompletableFuture<CompletableFuture<String>> nestedFuture =
+			    CompletableFuture
+			        .supplyAsync(() -> "Hello")
+			        .thenApply(result -> CompletableFuture.supplyAsync(() -> result + " World"));
+
 		
 		CompletableFuture<String> cf = CompletableFuture
 			    .supplyAsync(() -> "Hello")

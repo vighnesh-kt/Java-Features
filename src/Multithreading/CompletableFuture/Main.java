@@ -107,6 +107,24 @@ public class Main {
 		
 		
 		
+	
+		//then combine
+		CompletableFuture<Integer>combine1=CompletableFuture.supplyAsync(
+				()->10
+			);
+		
+		CompletableFuture<Integer>combine2=CompletableFuture.supplyAsync(
+				()->20
+			);
+				
+		CompletableFuture<Integer> thenCombine = combine2.thenCombine(combine1, (i,j)->i+j);
+		
+		try {
+			System.out.println(thenCombine.get());
+		} catch (InterruptedException | ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

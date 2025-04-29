@@ -6,7 +6,7 @@ public class MonitorLockExample {
 		try {
 			System.out.println("inside task1");
 			Thread.sleep(10000);
-			System.out.println("task 1 completed");
+			System.out.println("task 1 completed lock released");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -16,7 +16,7 @@ public class MonitorLockExample {
 	public void task2() {
 		System.out.println("task2, but before synchronized");
 		synchronized (this) {
-			System.out.println("task2,");
+			System.out.println("task2");
 
 		}
 	}
